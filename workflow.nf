@@ -15,6 +15,6 @@ process DownloadFastqFiles {
 
 	script:
 	"""
-	wget -O ${sample}_1.fastq.gz ftp://ftp.sra.ebi.ac.uk/vol1/fastq/${sample:0:5}/${sample}/${sample}_1.fastq.gz
+	wget -T ${task.cpus} -O ${sample}_1.fastq.gz ftp://ftp.sra.ebi.ac.uk/vol1/fastq/${sample:0:5}/${sample}/${sample}_1.fastq.gz
 	"""
 	}
