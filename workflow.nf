@@ -11,10 +11,10 @@ process DownloadFastqFiles {
     val sample from samples
 
 	output:
-	file "${sample}_1.fastq.gz" into fasta_files
+	file "${sample}_1.fastq.gz" into fastq_files
 
 	script:
 	"""
-	wget -T ${task.cpus} -O ${sample}_1.fastq.gz ftp://ftp.sra.ebi.ac.uk/vol1/fastq/${sample:0:5}/${sample}/${sample}_1.fastq.gz
+	wget -O ${sample}_1.fastq.gz ftp://ftp.sra.ebi.ac.uk/vol1/fastq/${sample.substring(0,6)}/${sample}/${sample}_1.fastq.gz
 	"""
 	}
