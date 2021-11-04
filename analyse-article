@@ -1,0 +1,41 @@
+Titre Recurrent mutations at codon 625 of the splicing factor SF3B1 in uveal melanoma 
+date 2013
+Dans Nature
+auteurs J William Harbour1,3,4, Elisha D O Roberson2, Hima Anbunathan2, Michael D Onken1, Lori A Worley1 & Anne M Bowcock2, 
+ce qu’on étudie : les mutations génétiques qui seraient impliqués dans les cancers de l’oeil et plus particulièrement du cancer de l’uvée
+enjeu de l’étude : le cancer de l’oeil le + commun est le cancer de l’uvée ( et il évolue souvent en métastase mortelle).
+contexte d’étude : il a déjà été montré dans une étude que dans 40 % des cas de cancer de l’uvée on trouvait des mutations sur le gène BAP1 (gène qui code une prot BRCA1-associated protein 1). Ces mutations étaient des mutations entraînant une perte de fonction de la protéine. (mutations dans les cellules cancéreuses)
+Du coup ils se demandent : est-ce qu’on peut trouver d’autres mutations impliquées dans le cancer de l’uvée ? Ils trouvent des gènes mutés. Ils s’intéressent au gène SFR3B1 (l’autre gène a déjà été étudié dans ce contexte). Ils s’aperçoivent que seul le codon 625 est modifié.
+Ils se demandent : ok, mais est-ce qu’on retrouve ces mutations souvent dans les cas de cancer de l’uvée ? Oui, environ 18 %  (19 échantillons de tumeurs sur 102) => donc ça peut être intéressant d’étudier cette mutation. De plus, d’autres mutations de gènes qui sont + souvent observées dans les tumeurs ont aussi ces mutations « tardives » de SFR3B1. Mais on trouve que mutation 625 SFR3B1 , quand est exclusif, st associé à une progression moins rapide de la métastase, patient âge jeune, et moins d’épithélium indiffériencié. Donc cette mutation représente un chemin alternatif au chemin commun de la progression de la tumeur. 
+ce qu’ils veulent montrer
+A propos du gène SFR3B1
+Les mutations du codon 625 du gène SFR3B1 
+ce gène code une partie de protéine (sous-unité 1)
+Cette partie de protéine est une composante de l’unité 2 du petit complexe nucléaire ribonucléique (snRNP),  qui permet le splicing des pré ARNmessagers
+Cette partie de protéine est aussi une composante de l’unité u12 du spliceosome. 
+QUESTION DE RECHERCHE 1
+puisque la mutation affecte une partie de protéine impliquée dans l’épissage des ARNm.
+Quel est l’effet de la mutation sur l’expression globale  des ARN ? En quoi cette mutation affecte l’expression des gènes en entiers ?
+comment ils veulent chercher
+on se cantonne aux cellules cancéreuses de cancer de type 1
+on prend des cellules cancéreuses ayant la mutation (5)
+on prend des cellules cancéreuses n’ayant pas la mutation (6)
+on compare leur transcriptome
+méthode
+Illumina BeadArray platform 
+résultats
+On trouve seulement 10 gènes dont l’expression est différente entre le type sauvage et le type mutant. Et on ne comprends pas en quoi leur différence d’expression sont liées à la mutation SFR3B1. En gros ils se disent : on trouve pas vraiment de différence d’expression de gène
+Du coup deuxième théorie : cette mutation crée de la rétention d’intron : aKa quand les ARNm contiennent des introns entiers qui n’ont pas été épissés.
+QUESTION DE RECHERCHE 2
+Est-ce que la mutation SFR3B1 entraîne un phénomène de rétention d’introns ?
+Comment est-ce qu’ils s’y prennent ?
+Analyse de 8 tumeurs
+5 sauvage
+3 mutation SFR3B1
+méthode
+RNA-seq (mais du coup je comprends pas pq on utilise ça pour étudier le phénomène de rétention des introns, puisque la rétention des introns se manifesterait plus par un décalage dans le mapping – si on mappe avec que l’exome)
+Le séquençage permet alors d'évaluer l'abondance des transcrits de chaque gène, c'est-à-dire le nombre de fois qu'un même transcrit a été séquencé. Ainsi, il est possible de déterminer l'expression relative des gènes dans une condition physiologique donnée, en comparaison à une condition physiologique de référence. 
+
+conclu
+Malgré le rôle connu de la SF3B1 dans l'épissage de l'ARN, il n'y a pas eu de résultats cohérents reliant les mutations de la SF3B1 à des erreurs d'épissage spécifiques dans les SMD (myelodysplastic syndrome) ou la LLC (leucémie) (et là je ne vois pas pourquoi parfois ils comparent à ces maladies là) et les conséquences fonctionnelles des mutations de la SF3B1 restent insaisissables, malgré des recherches intensives.
+limites des conclus : autres recherches à faire - chromatine qui serait impliquée ? (donc rien à voir avec l'expression des gènes). D'autres études en cours
