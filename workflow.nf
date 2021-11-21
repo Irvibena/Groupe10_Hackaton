@@ -51,7 +51,7 @@ process MergeChr {
 
 	script :
 	"""
-	gunzip -c *.fa.gz > ref.fa
+	gunzip -c ${gen} > ref.fa
 	"""
 }
 
