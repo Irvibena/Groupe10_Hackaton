@@ -17,8 +17,8 @@ process DownloadFastqFiles {
 
         script:
         """
-        wget -O ${sample}_1.fastq.gz ftp://ftp.sra.ebi.ac.uk/vol1/fastq/${sample.substring(0,6)}/${sample}/${sample}_1.fastq.gz
-        wget -O ${sample}_2.fastq.gz ftp://ftp.sra.ebi.ac.uk/vol1/fastq/${sample.substring(0,6)}/${sample}/${sample}_2.fastq.gz
+        wget -O ${sample}.sra https://sra-downloadb.be-md.ncbi.nlm.nih.gov/sos1/sra-pub-run-5/${sample}/${sample}.1
+	fastq-dump --gzip --split-files ./${sample}.sra
         """
         }
 
