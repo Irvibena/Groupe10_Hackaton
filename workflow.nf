@@ -9,6 +9,9 @@ liste_chromosomes = Channel.of("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"
 // Téléchargement des données
 
 process DownloadFastqFiles {
+
+	publishDir "results/samples_sra/"
+
         input:
         val sample from samples
 
@@ -22,6 +25,9 @@ process DownloadFastqFiles {
         }
 	
 process sraToFastqZip {
+
+	publishDir "rsults/samples_fastq/"
+
         input:
         tuple val (sample), file (samp_sra) from sra_files
 
@@ -40,6 +46,8 @@ process sraToFastqZip {
 
 process DownloadChromosomes {
 
+	publishDir "results/chr/"
+
 	input:
 	val chromo from liste_chromosomes
 
@@ -55,6 +63,9 @@ process DownloadChromosomes {
 
 // Concaténation des séquences des chromosomes en un seul fichier
 process MergeChr {
+
+	publishDir "results/genome/"
+
 	input:
 	file "gen" from genome_humain_zip.collect()
 
@@ -70,6 +81,9 @@ process MergeChr {
 
 // Indexation du génome humain
 process indexGen {
+
+	publishDir "results/gen_index/"
+
 	input :
 	file genome from genome_merge
 
@@ -87,6 +101,9 @@ process indexGen {
 // Télécharger les annotations du génome
 
 process getGenomic_features{
+
+	publishDir "results/gen_features/"
+
 	output:
 	file "*.gtf" into annotation
 
@@ -102,7 +119,7 @@ process getGenomic_features{
 
 process mapping_Fastq {
 
-	publishDir "bam_files/"
+	publishDir "results/bam_files/"
 
 	input:
 	tuple val(sample), file(fastq1), file(fastq2) from fastq_files
@@ -131,7 +148,8 @@ process mapping_Fastq {
 // Indexation des fichiers bam
 
 process indexBam {
-	publishDir "bam_files/"
+
+	publishDir "results/bam_files/"
 
 	input:
 	file bam from mapped_fastq_1
@@ -149,7 +167,8 @@ process indexBam {
 // Comptage des reads
 process getCountReads_feature {
 
-	publishDir "count_output/"
+	publishDir "results/count_output/"
+
 	input:
 	file gtf from annotation
 	file bam from mapped_fastq_2.collect()
