@@ -26,7 +26,7 @@ process DownloadFastqFiles {
 	
 process sraToFastqZip {
 
-	publishDir "rsults/samples_fastq/"
+	publishDir "results/samples_fastq/"
 
         input:
         tuple val (sample), file (samp_sra) from sra_files
