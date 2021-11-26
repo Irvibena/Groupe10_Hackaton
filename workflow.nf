@@ -21,7 +21,7 @@ process DownloadFastqFiles {
         """
         }
 	
-process SraToFastqZip {
+process sraToFastqZip {
         input:
         tuple val (sample), file (samp_sra) from sra_files
 
