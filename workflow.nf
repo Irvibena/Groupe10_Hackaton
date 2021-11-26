@@ -53,10 +53,8 @@ process DownloadChromosomes {
 
 	output:
 	file "${chromo}.fa.gz" into genome_humain_zip
-
-	script:
 	"""
-	wget -O chromo${chromo}.fa.gz ftp://ftp.ensembl.org/pub/release-101/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.${chromo}.fa.gz
+	wget -O ${chromo}.fa.gz ftp://ftp.ensembl.org/pub/release-101/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.${chromo}.fa.gz
 	"""
 	}
 
