@@ -52,8 +52,7 @@ process DownloadChromosomes {
 	val chromo from liste_chromosomes
 
 	output:
-	file "*.fa.gz" into genome_humain_zip
-
+	file "${chromo}.fa.gz" into genome_humain_zip
 
 	script:
 	"""
@@ -67,7 +66,7 @@ process MergeChr {
 	publishDir "results/genome/"
 
 	input:
-	file "gen" from genome_humain_zip.collect()
+	file gen from genome_humain_zip.collect()
 
 	output:
 	file "ref.fa" into genome_merge
