@@ -13,12 +13,24 @@ process DownloadFastqFiles {
         val sample from samples
 
         output:
-        tuple val (sample), file ("${sample}_1.fastq.gz"), file ("${sample}_2.fastq.gz") into fastq_files
+        tuple val (sample), file ("${sample}.sra") into sra_files
 
         script:
         """
         wget -O ${sample}.sra https://sra-downloadb.be-md.ncbi.nlm.nih.gov/sos1/sra-pub-run-5/${sample}/${sample}.1
-	fastq-dump --gzip --split-files ./${sample}.sra
+        """
+        }
+	
+process SraToFastqZip {
+        input:
+        tuple val (sample), file (samp_sra) from sra_files
+
+        output:
+        tuple val (sample), file ("${sample}_1.fastq.gz"), file ("${sample}_2.fastq.gz") into fastq_files
+
+        script:
+        """
+	fastq-dump --gzip --split-files ${samp_sra}
         """
         }
 
