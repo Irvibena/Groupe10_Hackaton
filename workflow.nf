@@ -82,7 +82,7 @@ process indexGen {
 	publishDir "results/gen_index/"
 
 	input :
-	file (genome) from genome_merge.collect()
+	file genome from genome_merge.collect()
 
 	output :
 	path "ref" into star_index
