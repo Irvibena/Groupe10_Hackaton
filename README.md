@@ -33,7 +33,7 @@ Une fois connecté à la VM depuis MobaXTerm, éxécuter `ssh-keygen -t rsa` pui
 Dans son profil [GitHub](https://github.com/), sous **Settings** > **SSH and GPG keys**, cliquer sur **New SSH key** et ajouter la clef SSH copié précédemment.  
 Sur la VM (via MobaXTerm), se placer dans le bon dossier, _i.e._ exécuter `cd data/mydatalocal/`.  
 Enfin, exécuter `git clone git@github.com:Irvibena/Groupe10_Hackaton.git`.  
-Taper `cd Groupe10_Hackaton/` pour se place dans le répertoire.
+Taper `cd Groupe10_Hackaton/` pour se placer dans le répertoire.
 
 ### Le workflow
 
