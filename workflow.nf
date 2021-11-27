@@ -89,10 +89,7 @@ process indexGen {
 
 	script :
 	"""
-	STAR --runThreadN ${task.cpus} \
-	--runMode genomeGenerate \
-	--genomeDir ref/ \
-	--genomeFastaFiles ${genome}
+	STAR --runThreadN ${task.cpus} --runMode genomeGenerate --genomeDir ref/ --genomeFastaFiles ${genome}
 	"""
 }
 // Télécharger les annotations du génome
