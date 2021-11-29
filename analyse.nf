@@ -80,7 +80,7 @@ process plotVolcano {
 	  geom_point(data = res2, aes(x = log2FoldChange, y = -log10(pvalue)), color = "black") +
 	  geom_point(data = res2.condition1, aes(x = log2FoldChange, y = -log10(pvalue)), color = "blue") +
 	  geom_point(data = res2.condition2, aes(x = log2FoldChange, y = -log10(pvalue)), color = "red") +
-	  geom_text(label=res2.condition2$row, nudge_x = 0.25, nudge_y = 0.25, check_overlap = T, size = 2) +
+	  geom_text(label=res2.condition2[,"row"], nudge_x = 0.25, nudge_y = 0.25, check_overlap = T, size = 2) +
 	  xlim(-8, 8)
 	ggsave("volcano.png", plot.volcano)
 	"""
