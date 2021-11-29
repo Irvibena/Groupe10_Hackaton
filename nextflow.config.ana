@@ -1,0 +1,11 @@
+docker {
+	enabled = true
+}
+
+process {
+
+	withName: dataAnalysis {
+		container = "evolbioinfo/deseq2:v1.28.1"
+		cpus = 1
+		}
+	}
