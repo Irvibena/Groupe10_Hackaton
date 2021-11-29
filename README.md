@@ -1,6 +1,6 @@
 # Groupe10 Hackaton AMI2B 2021
 
-Nous détaillons ici dans une première partie le mode opératoire pour lancer le workflow. Dans une seconde partie, nous donnons les instructions pour se connecter à notre VM où les résultats du workflow sont déjà présents.
+Nous détaillons ici dans une première partie le mode opératoire pour lancer le workflow.
 
 Pour consulter le workflow, voir les fichiers [workflow.nf](workflow.nf) et la configuration [nextflow.config](nextflow.config).
 
