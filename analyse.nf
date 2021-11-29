@@ -1,7 +1,9 @@
 //!/usr/bin/env nextflow
 
 params.design_file="/mnt/mydatalocal/Groupe10_Hackaton/etiquetage_echantillon.csv"
-fichier_reads = Channel.of(params.design_file)
+params.reads_file="/mnt/mydatalocal/Groupe10_Hackaton/count_file.txt"
+fichier_meta = Channel.of(params.design_file)
+fichier_reads = Channel.of(params.reads_file)
 
 // Analyse des données
 
@@ -10,8 +12,8 @@ process dataAnalysis {
 publishDir "results/count_output/"
   
 input:
-path reads from FileReads
-path metadata from fichier_mutant
+path reads from fichier_reads
+path metadata from fichier_meta
 
 output:
 file "histogramm.png" into result_deseq
