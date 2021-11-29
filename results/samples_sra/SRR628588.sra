@@ -1,1 +1,0 @@
-/mnt/mydatalocal/Groupe10_Hackaton/work/fe/6c18687ca85af1273bd7f982848a39/SRR628588.sra
