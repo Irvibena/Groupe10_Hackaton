@@ -17,7 +17,7 @@ process dataAnalysis {
 
 	output:
 	file "histogramm.png" into histo
-	file "histogramm.png" into MA
+	file "MA_plot.png" into MA
 	file "plot_counts.png" into plots_counts
 	file "dispersion.png" into disp
 	file "deseq_res_1.csv" into object_res_1
