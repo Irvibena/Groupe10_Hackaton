@@ -8,4 +8,9 @@ process {
 		container = "evolbioinfo/deseq2:v1.28.1"
 		cpus = 1
 		}
+
+	withName: plotVolcano {
+		container = "genomicpariscentre/ggplot2:latest"
+		cpus = 1
+		}
 	}
