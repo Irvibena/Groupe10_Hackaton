@@ -185,15 +185,15 @@ fichier_meta = Channel.of(params.design_file)
 process dataAnalysis {
 
 	publishDir "results/plots/"
-  
+
 	input:
 	path reads from FileReads
 	path metadata from fichier_meta
 
 	output:
 	file "histogramm.png" into histo
-	file "histogramm.png" into MA
-	file "plots_counts.png" into plots_counts
+	file "MA_plot.png" into MA
+	file "plot_counts.png" into plots_counts
 	file "dispersion.png" into disp
 	file "deseq_res_1.csv" into object_res_1
 	file "deseq_res_2.csv" into object_res_2
@@ -220,10 +220,10 @@ process dataAnalysis {
 	dev.off()
 	png("plot_counts.png")
 	plotCounts(dds, gene=which.min(res[,"padj"]), intgroup="cond")
-	def.off()
+	dev.off()
 	png("dispersion.png")
 	plotDispEsts(dds)
-	def.off()
+	dev.off()
 	res <- as.data.frame(res)
 	write.csv(res, file="deseq_res_1.csv")
 	res2 <- results(dds, tidy=TRUE)
@@ -237,7 +237,7 @@ process dataAnalysis {
 process plotVolcano {
 
 	publishDir "results/plots/"
-  
+
 	input:
 	path res from object_res_2
 
@@ -248,14 +248,14 @@ process plotVolcano {
 	"""
 	#!/usr/bin/env Rscript
 	library(ggplot2)
-	res = read.csv("${res}", header=TRUE, sep=",")
+	res2 = read.csv("${res}", header=TRUE, sep=",")
 	res2.condition1 <- subset(res2, padj<.1)
 	res2.condition2 <- subset(res2, (padj<.005 & -log10(pvalue) > 6))
 	plot.volcano <- ggplot(data = res2.condition2, aes(x = log2FoldChange, y = -log10(pvalue), label = row)) +
 	  geom_point(data = res2, aes(x = log2FoldChange, y = -log10(pvalue)), color = "black") +
 	  geom_point(data = res2.condition1, aes(x = log2FoldChange, y = -log10(pvalue)), color = "blue") +
 	  geom_point(data = res2.condition2, aes(x = log2FoldChange, y = -log10(pvalue)), color = "red") +
-	  geom_text(label=res2.condition2$row, nudge_x = 0.25, nudge_y = 0.25, check_overlap = T, size = 2) +
+	  geom_text(label=res2.condition2[,"row"], nudge_x = 0.25, nudge_y = 0.25, check_overlap = T, size = 2) +
 	  xlim(-8, 8)
 	ggsave("volcano.png", plot.volcano)
 	"""
