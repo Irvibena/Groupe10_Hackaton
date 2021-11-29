@@ -73,7 +73,7 @@ process plotVolcano {
 	"""
 	#!/usr/bin/env Rscript
 	library(ggplot2)
-	res = read.csv("${res}", header=TRUE, sep=",")
+	res2 = read.csv("${res}", header=TRUE, sep=",")
 	res2.condition1 <- subset(res2, padj<.1)
 	res2.condition2 <- subset(res2, (padj<.005 & -log10(pvalue) > 6))
 	plot.volcano <- ggplot(data = res2.condition2, aes(x = log2FoldChange, y = -log10(pvalue), label = row)) +
